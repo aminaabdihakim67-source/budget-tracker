@@ -32,3 +32,21 @@ My Budget Tracker is a simple website designed to help users record and view the
 
 ## Author
 Amina Abdihakim Mohamed
+
+## Week 3: Visual Identity and CSS Design
+
+For Week 3, I improved the visual appearance of my Budget Tracker using CSS.
+
+### Design Features
+- Used a cream, white, sage green, and forest green colour palette.
+- Added Google Fonts: DM Sans for body text and Playfair Display for headings.
+- Styled the page heading, expense form, and expense table as separate cards.
+- Added padding, margins, borders, rounded corners, and shadows.
+- Styled form inputs and buttons.
+- Added alternating colours to table rows and hover effects.
+- Included responsive styling for smaller screens.
+
+### Technologies Used
+- HTML5
+- CSS3
+- Google Fonts
