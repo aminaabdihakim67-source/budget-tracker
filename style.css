@@ -1,4 +1,5 @@
-/* Element selector */
+
+/* General page styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,13 +7,18 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Element selector */
+/* Main heading */
 h1 {
     text-align: center;
     color: #333;
 }
 
-/* ID selector */
+/* Section headings */
+h2 {
+    color: #444;
+}
+
+/* Add Expense section */
 #add-expense {
     background-color: white;
     padding: 20px;
@@ -21,24 +27,126 @@ h1 {
     border-radius: 8px;
 }
 
-/* Class selector */
+/* Expenses section */
 .expenses {
     background-color: #e8f5e9;
     padding: 20px;
     margin: 20px auto;
-    max-width: 500px;
+    max-width: 800px;
     border-radius: 8px;
 }
 
-/* Element selector */
-input {
+/* Form inputs */
+input,
+select {
     display: block;
     width: 95%;
     padding: 10px;
     margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-/* Element selector */
-h2 {
-    color: #444;
+/* Focus selector */
+input:focus,
+select:focus {
+    outline: 2px solid #4caf50;
+}
+
+/* Button styling */
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Button hover */
+button:hover {
+    background-color: #388e3c;
+}
+
+/* Expense table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table cells */
+.expenses th,
+.expenses td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Table header */
+.expenses thead {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Alternating row colors */
+.expenses tbody tr:nth-child(even) {
+    background-color: #dcedc8;
+}
+
+/* Table row hover */
+.expenses tbody tr:hover {
+    background-color: #c8e6c9;
+}
+
+/* Descendant selector */
+.expenses td {
+    color: #333;
+}
+
+/* Negation pseudo-class */
+input:not([type="date"]) {
+    background-color: #fff;
+}
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Logo styling */
+header img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Video section */
+.video-section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Responsive video */
+.video-section iframe {
+    max-width: 100%;
+}
+
+/* Instructions section */
+.instructions {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+/* Summary styling */
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #388e3c;
 }
