@@ -49,4 +49,25 @@ For Week 3, I improved the visual appearance of my Budget Tracker using CSS.
 ### Technologies Used
 - HTML5
 - CSS3
-- Google Fonts
+- Google Fonts## Week 4: SpendWise Dashboard Shell
+
+For Week 4, I rebuilt my Budget Tracker into a responsive SpendWise financial dashboard.
+
+### Features
+- Sidebar navigation menu.
+- Dashboard header and profile area.
+- Six financial category cards: Food, Transport, Rent, Entertainment, Savings and Utilities.
+- CSS Grid for the overall dashboard and category layout.
+- Flexbox for the sidebar, header and dashboard cards.
+- CSS custom properties for a consistent colour theme.
+- Responsive single-column layout below 768px.
+- Hover and keyboard-focus animations on cards.
+- Dark theme using prefers-color-scheme.
+
+### Technologies Used
+- HTML5
+- CSS3
+- CSS Grid
+- Flexbox
+- CSS Variables
+- Media Queries
