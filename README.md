@@ -71,3 +71,43 @@ For Week 4, I rebuilt my Budget Tracker into a responsive SpendWise financial da
 - Flexbox
 - CSS Variables
 - Media Queries
+
+## Week 6: JavaScript Foundation
+
+### What SpendWise Does
+SpendWise is a personal budget tracker that helps users calculate their remaining balance and monitor their spending.
+
+### JavaScript Concepts Implemented
+
+1. Variables and Data Types
+   - Used `let` to store monthly budget, expenses, remaining balance and budget status.
+   - Used numbers and strings.
+
+2. User Input
+   - Used `prompt()` to collect monthly budget and expenses.
+   - Used `Number()` to convert user input into numbers.
+
+3. Input Validation
+   - Used `if` statements and `isNaN()` to reject invalid budget and expense values.
+
+4. Budget Calculations
+   - Subtracted total expenses from the monthly budget to calculate the remaining balance.
+
+5. Functions
+   - `calculateRemainingBalance()` calculates the remaining budget.
+   - `checkBudgetStatus()` checks whether the user is within or over budget.
+
+6. Displaying Results
+   - Used `console.log()` to display the budget summary and calculations in the browser console.
+
+### How to Run SpendWise
+1. Open `index.html` in a web browser.
+2. Enter your monthly budget when prompted.
+3. Enter your total expenses.
+4. Open the browser console to view the budget summary.
+
+### Testing
+Tested with:
+- Budget: KSh 10,000; Expenses: KSh 3,500; Balance: KSh 6,500.
+- Budget: KSh 10,000; Expenses: KSh 12,000; Balance: KSh -2,000.
+- Negative budget and expenses were rejected.
