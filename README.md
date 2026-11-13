@@ -67,3 +67,22 @@ All three budget status tests worked successfully.
 
 **Project:** SpendWise Interactive Budget Tracker  
 **Developer:** Amina Abdihakim Mohamed
+## GitHub Repository Information
+
+GitHub Repository: https://github.com/aminaabdihakim67-source/budget-tracker
+
+## Live Netlify Website
+
+Live Website URL: https://spendwise-amina.netlify.app
+
+## Deployment Process Summary
+
+The SpendWise project was deployed using Netlify by connecting the public GitHub repository. Netlify was configured to deploy the master branch automatically whenever new changes are pushed to GitHub.
+
+## Challenges Encountered During Deployment
+
+I experienced difficulties connecting Netlify to GitHub because repository permissions were not initially configured. I resolved this by installing the Netlify GitHub application and granting access to my budget-tracker repository.
+
+## Lessons Learned
+
+I learned how to connect GitHub to Netlify, deploy a website, configure a custom project name, and use continuous deployment to publish updates automatically.
