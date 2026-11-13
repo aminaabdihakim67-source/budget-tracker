@@ -1,49 +1,107 @@
 
-// SpendWise - JavaScript Foundation
+// SpendWise - Interactive Budget Tracker
 
-// 1. Store budgeting information
-let monthlyBudget = 0;
-let expenseAmount = 0;
+// 1. Store the monthly budget
+let monthlyBudget = 10000;
 
-// 2. Collect and validate user input
-monthlyBudget = Number(prompt("Enter your monthly budget (KSh):"));
+// 2. Store multiple expenses in an array
+let expenses = [];
 
-if (monthlyBudget <= 0 || isNaN(monthlyBudget)) {
-    alert("Please enter a valid monthly budget.");
-} else {
-    expenseAmount = Number(prompt("Enter your total expenses (KSh):"));
+// 3. Get HTML elements
+const budgetDisplay = document.getElementById("monthly-budget");
+const totalExpensesDisplay = document.getElementById("total-expenses");
+const remainingBalanceDisplay = document.getElementById("remaining-balance");
+const budgetStatusDisplay = document.getElementById("budget-status");
+const expenseForm = document.getElementById("expense-form");
+const expenseList = document.getElementById("expense-list");
 
-    if (expenseAmount < 0 || isNaN(expenseAmount)) {
-        alert("Please enter valid expenses.");
+// 4. Calculate total expenses using a loop
+function calculateTotalExpenses() {
+    let total = 0;
+
+    for (let i = 0; i < expenses.length; i++) {
+        total += expenses[i].amount;
     }
+
+    return total;
 }
 
-// 3. Create a reusable budget calculation function
-function calculateRemainingBalance(budget, expenses) {
-    return budget - expenses;
-}
-function checkBudgetStatus(budget, expenses) {
-    if (expenses > budget) {
-        return "You are over budget!";
-    } else if (expenses === budget) {
+// 5. Check budget status using conditionals
+function checkBudgetStatus(total) {
+    if (total > monthlyBudget) {
+        return "Warning! You are over budget!";
+    } else if (total === monthlyBudget) {
         return "You have used your entire budget.";
     } else {
-        return "You are within your budget.";
+        return "Great! You are within your budget.";
     }
 }
-// 4. Calculate the remaining balance
-let remainingBalance = calculateRemainingBalance(
-    monthlyBudget,
-    expenseAmount
-);
-let budgetStatus = checkBudgetStatus(
-    monthlyBudget,
-    expenseAmount
-);
-// 5. Display results in the console
-console.log("===== SPENDWISE BUDGET SUMMARY =====");
-console.log("Monthly Budget: KSh " + monthlyBudget);
-console.log("Total Expenses: KSh " + expenseAmount);
-console.log("Remaining Balance: KSh " + remainingBalance);  
-console.log("Budget Status: " + budgetStatus);
-console.log("===================================");
+
+// 6. Update the dashboard
+function updateDashboard() {
+    let total = calculateTotalExpenses();
+    let remaining = monthlyBudget - total;
+
+    budgetDisplay.textContent = "KSh " + monthlyBudget.toLocaleString();
+    totalExpensesDisplay.textContent = "KSh " + total.toLocaleString();
+    remainingBalanceDisplay.textContent = "KSh " + remaining.toLocaleString();
+
+    // Display budget feedback directly on the webpage
+    budgetStatusDisplay.textContent = checkBudgetStatus(total);
+
+    // Display all expenses using a loop
+    expenseList.innerHTML = "";
+
+    if (expenses.length === 0) {
+        expenseList.textContent = "No expenses recorded yet.";
+    } else {
+        for (let i = 0; i < expenses.length; i++) {
+            const expenseItem = document.createElement("div");
+            expenseItem.className = "expense-item";
+
+            const expenseDetails = document.createElement("span");
+            expenseDetails.textContent =
+                expenses[i].name + " - " + expenses[i].category;
+
+            const expenseAmount = document.createElement("strong");
+            expenseAmount.textContent =
+                "KSh " + expenses[i].amount.toLocaleString();
+
+            expenseItem.appendChild(expenseDetails);
+            expenseItem.appendChild(expenseAmount);
+            expenseList.appendChild(expenseItem);
+        }
+    }
+}
+
+// 7. Listen for expense form submission
+expenseForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("expense-name").value.trim();
+    const category = document.getElementById("expense-category").value;
+    const amount = Number(document.getElementById("expense-amount").value);
+
+    // Validate the expense
+    if (name === "" || category === "" || !Number.isFinite(amount) || amount <= 0) {
+        alert("Please enter valid expense details.");
+        return;
+    }
+
+    // Add the new expense to the array
+    expenses.push({
+        name: name,
+        category: category,
+        amount: amount
+    });
+
+    // Update the dashboard
+    updateDashboard();
+
+    // Clear the form
+    expenseForm.reset();
+});
+
+// 8. Display the initial dashboard
+updateDashboard();
+
